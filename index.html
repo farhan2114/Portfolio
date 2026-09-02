@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Farhan — Universal Software Engineer & Full-Stack Developer</title>
+  
+  <!-- SEO & OpenGraph Metadata -->
+  <meta name="description" content="Portfolio of Mohammed Farhan, Software Engineer / Full-Stack Developer specializing in frontend engineering, backend microservices, AI/ML evaluation, cloud systems, and software reliability." />
+  <meta name="keywords" content="Mohammed Farhan, Software Engineer, Full Stack Developer, Python, React, Next.js, Flask, PyTorch, RAG, LLM, Cloud, Microservices, Testing" />
+  <meta name="author" content="Mohammed Farhan" />
+  <meta property="og:title" content="Mohammed Farhan — Universal Software Engineer Portfolio" />
+  <meta property="og:description" content="Engineering resilient full-stack systems, automated data pipelines, and intelligent software interfaces." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: {
+              800: '#161922',
+              900: '#0D0F17',
+              950: '#090A0F'
+            },
+            cyan: {
+              400: '#00F0FF',
+              500: '#00D8E6',
+              950: '#032830'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles Design System -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-charcoal-950 text-gray-100 bg-tech-grid antialiased selection:bg-cyan-500 selection:text-charcoal-950">
+
+  <!-- Accessible Skip to Content Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-cyan-400 focus:text-charcoal-950 focus:font-mono focus:font-bold focus:rounded-lg">
+    Skip to main content
+  </a>
+
+  <!-- Scroll Progress Telemetry Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-cyan-400 z-50 transition-all duration-150" style="width: 0%;"></div>
+
+  <!-- Desktop Refined Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring">
+    <span id="cursor-label"></span>
+  </div>
+
+  <!-- Sticky Header Navigation -->
+  <nav id="main-nav" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 px-4 md:px-8 py-3.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded px-1 py-0.5">
+        <span class="w-3 h-3 rounded-full bg-cyan-400 group-hover:scale-125 transition-transform shadow-[0_0_10px_rgba(0,240,255,0.6)]"></span>
+        <span class="font-mono text-sm font-bold tracking-wider text-white">FARHAN<span class="text-cyan-400">.SYS</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden xl:flex items-center space-x-6 text-xs font-mono">
+        <a href="#projects" class="nav-link text-gray-300 hover:text-cyan-400 transition-colors py-1">WORK</a>
+        <a href="#system-map" class="nav-link text-gray-300 hover:text-cyan-400 transition-colors py-1">SYSTEMS</a>
+        <a href="#lab" class="nav-link text-gray-300 hover:text-cyan-400 transition-colors py-1">LAB</a>
+        <a href="#experience" class="nav-link text-gray-300 hover:text-cyan-400 transition-colors py-1">EXPERIENCE</a>
+        <a href="#skills" class="nav-link text-gray-300 hover:text-cyan-400 transition-colors py-1">SKILLS</a>
+        <a href="#about" class="nav-link text-gray-300 hover:text-cyan-400 transition-colors py-1">ABOUT</a>
+      </div>
+
+      <!-- Action Utilities -->
+      <div class="hidden sm:flex items-center space-x-3">
+        <!-- Cmd+K Button -->
+        <button type="button" data-open-cmd aria-label="Open command search dialog" class="min-h-[38px] px-3 py-1.5 rounded-xl border border-white/15 bg-charcoal-900 text-xs font-mono text-gray-200 hover:border-cyan-400 hover:text-cyan-300 transition-colors flex items-center space-x-1.5 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+          <span>CMD+K</span>
+          <span class="text-cyan-400">🔍</span>
+        </button>
+
+        <!-- Motion Toggle -->
+        <button type="button" id="motion-toggle" aria-label="Toggle motion animations" class="min-h-[38px] px-3 py-1.5 rounded-xl border border-white/15 bg-charcoal-900 text-xs font-mono text-gray-200 hover:border-cyan-400 transition-colors flex items-center space-x-1.5 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+          <span class="w-2 h-2 rounded-full bg-green-400"></span>
+          <span>MOTION: ON</span>
+        </button>
+
+        <!-- Resume Modal Trigger -->
+        <button type="button" data-open-resume aria-label="Open resume viewer dialog" class="min-h-[38px] px-4 py-1.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-charcoal-950 font-mono text-xs font-bold transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)] focus:outline-none focus:ring-2 focus:ring-cyan-400">
+          RESUME
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button type="button" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-200 hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 bg-charcoal-950 border-l border-white/15 z-50 p-6 flex flex-col justify-between xl:hidden shadow-2xl">
+    <div class="space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <span class="font-mono text-xs text-cyan-400 font-bold">NAVIGATION MENU</span>
+        <button type="button" onclick="document.getElementById('mobile-menu').classList.remove('active')" aria-label="Close menu" class="text-gray-300 hover:text-white p-2 text-lg">✕</button>
+      </div>
+      <div class="flex flex-col space-y-4 font-mono text-sm">
+        <a href="#projects" class="text-gray-200 hover:text-cyan-300 py-1">01 // WORK</a>
+        <a href="#system-map" class="text-gray-200 hover:text-cyan-300 py-1">02 // SYSTEMS</a>
+        <a href="#lab" class="text-gray-200 hover:text-cyan-300 py-1">03 // LAB</a>
+        <a href="#experience" class="text-gray-200 hover:text-cyan-300 py-1">04 // EXPERIENCE</a>
+        <a href="#skills" class="text-gray-200 hover:text-cyan-300 py-1">05 // SKILLS</a>
+        <a href="#about" class="text-gray-200 hover:text-cyan-300 py-1">06 // ABOUT</a>
+        <a href="#contact" class="text-gray-200 hover:text-cyan-300 py-1">07 // CONTACT</a>
+      </div>
+    </div>
+    <div class="space-y-3 pt-6 border-t border-white/10">
+      <button type="button" data-open-resume class="w-full py-3 bg-cyan-400 text-charcoal-950 font-mono text-xs font-bold rounded-xl min-h-[44px]">
+        VIEW RESUME
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Canvas Content -->
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 md:px-8 overflow-hidden">
+      <!-- Interactive Network Canvas -->
+      <canvas id="hero-network-canvas" class="absolute inset-0 w-full h-full pointer-events-auto z-0"></canvas>
+
+      <div class="relative z-10 max-w-5xl mx-auto text-center space-y-8 pointer-events-none">
+        
+        <!-- Status Tag -->
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-cyan-500/40 bg-cyan-950/60 text-cyan-300 text-xs font-mono pointer-events-auto">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span>MOHAMMED FARHAN // SOFTWARE ENGINEER</span>
+        </div>
+
+        <!-- Kinetic Headline -->
+        <h1 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-white leading-tight">
+          BUILDING SOFTWARE<br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">THAT THINKS.</span><br />
+          <span class="text-gray-200">CONNECTS. SCALES.</span>
+        </h1>
+
+        <!-- Supporting Statement -->
+        <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-300 font-sans leading-relaxed">
+          Full-Stack Software Engineer with multidisciplinary experience spanning frontend systems, backend microservices, AI/ML evaluation pipelines, cloud infrastructure, and software validation.
+        </p>
+
+        <!-- Primary CTAs -->
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4 pointer-events-auto">
+          <a href="#projects" class="min-h-[44px] px-6 py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-charcoal-950 font-mono font-bold text-sm transition-all shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:scale-105 flex items-center justify-center">
+            EXPLORE WORK ↓
+          </a>
+          <button type="button" data-open-resume class="min-h-[44px] px-6 py-3 rounded-xl border border-white/20 bg-charcoal-900/80 hover:border-cyan-400 text-white font-mono text-sm font-semibold transition-all hover:scale-105 flex items-center justify-center">
+            VIEW RESUME ↗
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SYSTEM MAP SECTION ("HOW I BUILD") -->
+    <section id="system-map" class="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-4 gap-4">
+        <div>
+          <span class="text-xs font-mono text-cyan-400 tracking-wider">// SYSTEM TOPOLOGY</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">How I Build</h2>
+        </div>
+        <p class="text-xs font-mono text-gray-300 max-w-md">
+          Interactive architecture map connecting Farhan's core engineering domains. Select a node to illuminate verified toolsets and execution methodologies.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div id="system-map-container" class="lg:col-span-7">
+          <!-- Rendered by SystemMap JS -->
+        </div>
+        <div id="system-map-detail" class="lg:col-span-5 border border-white/10 rounded-xl bg-charcoal-900/70 p-6">
+          <!-- Detail panel rendered by SystemMap JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL PROJECTS SHOWCASE -->
+    <section id="projects" class="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-4 gap-4">
+        <div>
+          <span class="text-xs font-mono text-cyan-400 tracking-wider">// SELECTED ENGINEERING PROJECTS</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Featured Work</h2>
+        </div>
+        <span class="text-xs font-mono text-gray-300">6 VERIFIED CASE STUDIES</span>
+      </div>
+
+      <div id="projects-container" class="space-y-8">
+        <!-- Rendered by ProjectsSection JS -->
+      </div>
+    </section>
+
+    <!-- ENGINEERING LAB (MICRO-DEMOS) -->
+    <section id="lab" class="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-8">
+      <div id="engineering-lab-container">
+        <!-- Rendered by EngineeringLab JS -->
+      </div>
+    </section>
+
+    <!-- EXPERIENCE TIMELINE -->
+    <section id="experience" class="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-8">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-mono text-cyan-400 tracking-wider">// CAREER HISTORY</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Technical Experience</h2>
+      </div>
+
+      <div id="experience-container">
+        <!-- Rendered by ExperienceTimeline JS -->
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX -->
+    <section id="skills" class="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-8">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-mono text-cyan-400 tracking-wider">// COMPETENCY MATRIX</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Technical Profile</h2>
+      </div>
+
+      <div id="skills-container">
+        <!-- Rendered by SkillsMatrix JS -->
+      </div>
+    </section>
+
+    <!-- PUBLICATION SPOTLIGHT -->
+    <section id="publication" class="py-16 px-4 md:px-8 max-w-7xl mx-auto">
+      <div id="publication-container">
+        <!-- Rendered by PublicationSection JS -->
+      </div>
+    </section>
+
+    <!-- ENGINEERING DNA -->
+    <section id="dna" class="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-8">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-mono text-cyan-400 tracking-wider">// METHODOLOGY</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">My Engineering DNA</h2>
+      </div>
+
+      <div id="dna-container">
+        <!-- Rendered by EngineeringDna JS -->
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section id="credentials" class="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-8">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-mono text-cyan-400 tracking-wider">// CREDENTIALS</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Education & Certifications</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Education -->
+        <div class="border border-white/10 rounded-2xl bg-charcoal-900/50 p-6 space-y-3">
+          <span class="text-xs font-mono text-cyan-400 font-bold">ACADEMIC DEGREE</span>
+          <h3 class="text-lg font-bold text-white">B.Tech in Computer Science & Engineering</h3>
+          <div class="space-y-1 text-xs font-mono text-gray-300">
+            <div class="text-gray-400">Specialization Tracks:</div>
+            <div class="text-cyan-300">• Cyber Security</div>
+            <div class="text-cyan-300">• Blockchain Technology</div>
+            <div class="text-cyan-300">• Internet of Things (IoT)</div>
+          </div>
+        </div>
+
+        <!-- GCP Cert -->
+        <div class="border border-white/10 rounded-2xl bg-charcoal-900/50 p-6 space-y-3">
+          <span class="text-xs font-mono text-cyan-400 font-bold">CLOUD CERTIFICATION</span>
+          <h3 class="text-lg font-bold text-white">Google Cloud Certified</h3>
+          <p class="text-xs text-gray-300 font-semibold">Associate Cloud Engineer</p>
+          <p class="text-xs text-gray-300 leading-relaxed">Verified competency in deploying cloud applications, monitoring operations, and managing enterprise GCP infrastructure.</p>
+        </div>
+
+        <!-- RHCSA Cert -->
+        <div class="border border-white/10 rounded-2xl bg-charcoal-900/50 p-6 space-y-3">
+          <span class="text-xs font-mono text-cyan-400 font-bold">SYSTEMS CERTIFICATION</span>
+          <h3 class="text-lg font-bold text-white">Red Hat Certified</h3>
+          <p class="text-xs text-gray-300 font-semibold">System Administrator (RHCSA)</p>
+          <p class="text-xs text-gray-300 leading-relaxed">Core system administration across RHEL environments, shell scripting, storage management, and security controls.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 px-4 md:px-8 max-w-7xl mx-auto space-y-8">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-mono text-cyan-400 tracking-wider">// PHILOSOPHY</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">About Mohammed Farhan</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4 text-gray-300 font-sans leading-relaxed">
+          <p class="text-lg font-semibold text-white">
+            I build software with a focus on structural clarity, system reliability, and long-term maintainability.
+          </p>
+          <p>
+            Rather than confining myself to a single layer of the stack, I approach software engineering holistically—from responsive frontend UI components and RESTful microservices to AI/ML output evaluation, automated diagnostic pipelines, and Linux server administration.
+          </p>
+          <p>
+            Whether profiling database query performance at Hexagon or establishing automated validation profiles for LLM datasets at Ethara.ai, my work is driven by empirical investigation, clean modular code, and thoughtful digital design.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 border border-white/10 rounded-2xl bg-charcoal-900/70 p-6 space-y-4 font-mono text-xs">
+          <div class="flex justify-between border-b border-white/10 pb-2">
+            <span class="text-gray-400">STATUS</span>
+            <span class="text-cyan-300 font-bold">AVAILABLE FOR ROLES</span>
+          </div>
+          <div class="flex justify-between border-b border-white/10 pb-2">
+            <span class="text-gray-400">LOCATION</span>
+            <span class="text-white">INDIA</span>
+          </div>
+          <div class="flex justify-between border-b border-white/10 pb-2">
+            <span class="text-gray-400">FOCUS</span>
+            <span class="text-white">FULL-STACK / SYSTEMS / AI</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-400">TERMINAL CLI</span>
+            <span class="text-amber-300 font-medium">PRESS ~ OR CMD+J</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 px-4 md:px-8 max-w-7xl mx-auto text-center space-y-8">
+      <div class="max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-mono text-cyan-400 tracking-widest uppercase">// GET IN TOUCH</span>
+        <h2 class="text-4xl md:text-6xl font-display font-extrabold text-white">
+          LET'S BUILD SOMETHING USEFUL.
+        </h2>
+        <p class="text-gray-300 text-base font-sans">
+          Interested in discussing full-stack engineering roles, software projects, or technical collaboration? Reach out directly.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-4 font-mono text-xs">
+        <a href="mailto:mohammedfarhan.dev@gmail.com" class="min-h-[44px] px-6 py-3.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-charcoal-950 font-bold transition-all shadow-[0_0_20px_rgba(0,240,255,0.4)] flex items-center justify-center">
+          ✉ EMAIL MOHAMMED FARHAN
+        </a>
+        <a href="https://linkedin.com/in/mohammedfarhan" target="_blank" rel="noopener noreferrer" class="min-h-[44px] px-6 py-3.5 rounded-xl border border-white/15 bg-charcoal-900/80 hover:border-cyan-400 text-white font-semibold transition-all flex items-center justify-center">
+          LINKEDIN ↗
+        </a>
+        <a href="https://github.com/mohammedfarhan" target="_blank" rel="noopener noreferrer" class="min-h-[44px] px-6 py-3.5 rounded-xl border border-white/15 bg-charcoal-900/80 hover:border-cyan-400 text-white font-semibold transition-all flex items-center justify-center">
+          GITHUB ↗
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-8 px-4 md:px-8 bg-charcoal-950 text-xs font-mono text-gray-300">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>MOHAMMED FARHAN © 2026 // UNIVERSAL SOFTWARE PORTFOLIO</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button type="button" id="terminal-trigger" class="hover:text-cyan-300 p-1">TERMINAL CLI (~)</button>
+        <span>•</span>
+        <button type="button" data-open-cmd class="hover:text-cyan-300 p-1">CMD+K SEARCH</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DIALOGS -->
+
+  <!-- Project Case Study Modal -->
+  <div id="case-study-modal" role="dialog" aria-modal="true" aria-labelledby="case-study-title" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md items-center justify-center p-4">
+    <div class="relative w-full max-w-4xl max-h-[90vh] bg-charcoal-950 border border-white/20 rounded-2xl overflow-y-auto p-6 md:p-8 shadow-2xl">
+      <button type="button" id="case-study-close" aria-label="Close case study dialog" class="absolute top-4 right-4 text-gray-300 hover:text-white text-xl font-mono p-2 min-h-[44px] min-w-[44px]">✕</button>
+      <div id="case-study-content"></div>
+    </div>
+  </div>
+
+  <!-- Resume Viewer Modal -->
+  <div id="resume-modal" role="dialog" aria-modal="true" aria-label="Resume Document Viewer" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md items-center justify-center p-4">
+    <div class="relative w-full max-w-4xl max-h-[90vh] bg-charcoal-950 border border-white/20 rounded-2xl overflow-y-auto p-6 md:p-8 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <span class="font-mono text-xs text-cyan-400 font-bold">RESUME VIEW // MOHAMMED FARHAN</span>
+        <div class="flex items-center space-x-2">
+          <button type="button" id="resume-print" class="px-3.5 py-1.5 bg-cyan-400 text-charcoal-950 font-mono text-xs font-bold rounded-lg hover:bg-cyan-300 min-h-[36px]">PRINT / PDF</button>
+          <button type="button" id="resume-close" aria-label="Close resume viewer" class="text-gray-300 hover:text-white font-mono text-lg p-2 min-h-[44px] min-w-[44px]">✕</button>
+        </div>
+      </div>
+      <div id="resume-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Terminal Easter Egg Modal -->
+  <div id="terminal-modal" role="dialog" aria-modal="true" aria-label="Terminal CLI Shell" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md items-center justify-center p-4">
+    <div class="relative w-full max-w-2xl bg-charcoal-950 border border-cyan-500/50 rounded-xl shadow-2xl overflow-hidden font-mono">
+      <!-- Terminal Header -->
+      <div class="bg-charcoal-900 px-4 py-3 flex items-center justify-between border-b border-white/10">
+        <div class="flex items-center space-x-2">
+          <span class="w-3 h-3 rounded-full bg-red-500"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+          <span class="text-xs text-gray-300 ml-2">farhan@portfolio:~</span>
+        </div>
+        <button type="button" id="terminal-close" aria-label="Close terminal" class="text-gray-300 hover:text-white text-xs p-1">✕</button>
+      </div>
+      <!-- Terminal Body -->
+      <div class="p-4 space-y-3">
+        <div id="terminal-output" class="h-64 overflow-y-auto space-y-1 text-xs"></div>
+        <div class="flex items-center space-x-2 border-t border-white/10 pt-2 min-h-[40px]">
+          <span class="text-cyan-400 text-xs font-bold">farhan@portfolio ~ %</span>
+          <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" class="flex-1 bg-transparent text-xs text-white focus:outline-none font-mono" placeholder="type 'help'..." />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Command Palette Modal -->
+  <div id="command-palette-modal" role="dialog" aria-modal="true" aria-label="Command Search Palette" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md items-center justify-center p-4">
+    <div class="relative w-full max-w-xl bg-charcoal-950 border border-white/20 rounded-xl shadow-2xl overflow-hidden font-mono">
+      <div class="p-4 border-b border-white/10 flex items-center space-x-2">
+        <span class="text-cyan-400">🔍</span>
+        <input type="text" id="cmd-input" autocomplete="off" spellcheck="false" placeholder="Type a command or search section (e.g. 'projects', 'resume', 'lab')..." class="w-full bg-transparent text-sm text-white focus:outline-none min-h-[38px]" />
+        <button type="button" id="cmd-close" aria-label="Close search" class="text-gray-300 hover:text-white text-xs p-2">ESC</button>
+      </div>
+      <div id="cmd-results" class="max-h-80 overflow-y-auto divide-y divide-white/5"></div>
+    </div>
+  </div>
+
+  <!-- Main Initialization Script -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

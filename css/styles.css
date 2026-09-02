@@ -1,0 +1,169 @@
+/* Antigravity Custom Design System - Mohammed Farhan Portfolio (Dark Theme) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-charcoal: #090A0F;
+  --surface-charcoal: #0D0F17;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --cyan-accent: #00F0FF;
+  --text-main: #F3F4F6;
+  --text-muted: #9CA3AF;
+}
+
+body {
+  background-color: var(--bg-charcoal);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Background Noise & Fine Technical Grid Overlay */
+.bg-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Typography Utility Classes */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Navigation Scroll Backdrop Blur */
+.nav-scrolled {
+  background-color: rgba(9, 10, 15, 0.85) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090A0F;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan-accent);
+}
+
+/* Desktop Custom Cursor */
+#cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--cyan-accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+#cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cursor-ring.cursor-hover {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(0, 240, 255, 0.08);
+  border-color: var(--cyan-accent);
+}
+
+#cursor-ring.cursor-large {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 240, 255, 0.15);
+}
+
+#cursor-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--cyan-accent);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+/* Mobile Menu Drawer Animation */
+#mobile-menu {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(100%);
+}
+#mobile-menu.active {
+  transform: translateX(0);
+}
+
+/* Pulse & Glow Animations */
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+/* Reduced Motion Override */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+.reduce-motion #cursor-dot,
+.reduce-motion #cursor-ring {
+  display: none !important;
+}
+
+/* Print Stylesheet for Resume */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  #main-nav, #scroll-progress, #motion-toggle, #terminal-modal, #command-palette-modal, #cursor-dot, #cursor-ring, footer {
+    display: none !important;
+  }
+  .printable-resume {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .printable-resume * {
+    color: #000000 !important;
+    border-color: #cccccc !important;
+  }
+}

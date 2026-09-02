@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Logs & Audit Files
+audit.js
+audit_result.txt
+*.log
+
+# Vercel & Environment
+.vercel/
+.env
+.env.local
+.env.production
+
+# OS generated files
+.DS_Store
+Thumbs.db
