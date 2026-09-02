@@ -4,6 +4,8 @@ node_modules/
 # Logs & Audit Files
 audit.js
 audit_result.txt
+path_audit.js
+static_verify.js
 *.log
 
 # Vercel & Environment

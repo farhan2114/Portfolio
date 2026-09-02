@@ -1,20 +1,10 @@
 {
   "name": "mohammed-farhan-portfolio",
   "version": "1.0.0",
-  "description": "Universal Software Engineering Portfolio for Mohammed Farhan",
-  "main": "server.js",
+  "description": "Universal Software Engineering Portfolio for Mohammed Farhan — static HTML/CSS/JS site",
+  "private": true,
   "scripts": {
-    "start": "node server.js",
-    "build": "echo 'Production build ready.'"
-  },
-  "keywords": [
-    "portfolio",
-    "software-engineer",
-    "full-stack",
-    "developer",
-    "ai-ml",
-    "cloud"
-  ],
-  "author": "Mohammed Farhan",
-  "license": "MIT"
+    "dev": "node server.js",
+    "build": "echo 'No build step required. Static HTML/CSS/JS site.'"
+  }
 }
